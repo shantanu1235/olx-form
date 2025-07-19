@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  width: 600px;
+  width: 00px;
   margin: 40px auto;
   background: white;
   padding: 20px;
@@ -43,7 +43,7 @@ h2 {
 
 .cat-icon {
   font-size: 1.3em;
-  color: #454647;
+  color: rgb(162, 160, 160);
 }
 
 .cat-label {
@@ -52,7 +52,7 @@ h2 {
   font-size: 1.7em;
 }
 
-.subcategory-item {
+/* .subcategory-item {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -60,7 +60,7 @@ h2 {
   font-size: 20px;
   cursor: pointer;
   transition: background 0.2s;
-}
+} */
 
 .subcat-icon {
   font-size: 1.1em;
@@ -120,11 +120,11 @@ h2 {
 }
 
 .category-box-wrapper {
-  max-width:500px;
+  max-width:900px;
   margin: 24px auto;
-  border: 2px solid #d1d1d1;
+  border: 1px solid #d1d1d1;
   border-radius: 6px;
-  background: #fff;
+  background:white;
   padding: 0;
 }
 
@@ -133,7 +133,8 @@ h2 {
   font-weight: 600;
   padding: 18px 24px 12px 24px;
   border-bottom: 1px solid #e0e0e0;
-  background: #fafafa;
+  width: 302px;
+  background: white;
   letter-spacing: 0.5px;
 }
 
@@ -146,10 +147,12 @@ h2 {
 .category-list {
   width: 350px; /* wider left block */
   border-right: 1px solid #e0e0e0;
-  background: #fff;
+  background: #f0e7e7;
 }
 
+
 .category-row {
+  color: gray;
   display: flex;
   align-items: center;
   padding: 0 18px;
@@ -159,6 +162,9 @@ h2 {
   background: #fff;
   font-weight: normal;
   transition: background 0.2s;
+}
+.category-row:hover{
+  background-color: rgb(192, 191, 191);
 }
 
 .category-row.active {
@@ -188,7 +194,8 @@ h2 {
 .subcategory-list {
   flex: 1;
   min-width: 260px;
-  background: #fff;
+  color: gray;
+  background-color: white; /* Keep it white */
 }
 
 .subcategory-row {
@@ -196,18 +203,25 @@ h2 {
   align-items: center;
   padding: 0 18px;
   height: 48px;
-  border-bottom: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
   cursor: pointer;
   font-weight: normal;
-  background: #fff;
+  background-color: transparent !important; /* clear previous overrides */
   transition: background 0.2s;
   text-decoration: none;
   color: inherit;
 }
 
-.subcategory-row.active {
-  background: #e5e2e4;
+.subcategory-row:hover {
+  background-color: rgb(149, 146, 146) !important; 
+  color: black !important;
 }
+
+.subcategory-row.active {
+  background-color: white !important;
+  font-weight: 600; 
+}
+
 
 .subcat-icon {
   width: 24px;
@@ -220,10 +234,12 @@ h2 {
   font-weight: normal;
 }
 
+
+
 .category-item.box {
-  background: #fff;
+ background-color: white; 
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(175, 171, 171, 0.993);
+  box-shadow: 0 2px 8px rgba(252, 247, 247, 0.993);
   padding: 16px 20px;
   margin-bottom: 16px;
   display: flex;

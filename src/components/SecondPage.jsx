@@ -122,14 +122,17 @@ const SecondPage = () => {
   };
 
   return (
+    
+    <div>
+         <h2>POST YOUR AD</h2>
     <div className="form-container">
-      <h2>POST YOUR AD</h2>
+   
 
       {/* Category Section */}
       <div className="section">
         <div className="selected-category">
           <strong>SELECTED CATEGORY</strong>
-          <p>
+          <p className="pera">
             Properties / For Rent: Houses & Apartments{" "}
             <span className="change-link">Change</span>
           </p>
@@ -363,7 +366,7 @@ const SecondPage = () => {
         </div>
 
         {/* Price Section */}
-        <div className="section">
+        <div className="section2">
           <h3>SET A PRICE</h3>
           <input
             type="text"
@@ -421,7 +424,7 @@ const SecondPage = () => {
         </div>
 
         {/* Location Section */}
-        <div className="section">
+        <div className="section3">
           <h3>CONFIRM YOUR LOCATION</h3>
           <div className="tab-group">
             <span className="active-tab">LIST</span>
@@ -466,7 +469,7 @@ const SecondPage = () => {
                   placeholder="Jhon"
                   required
                 />
-                <span className="char-count">
+                <span className="count1">
                   {form.name.length} / {NAME_MAX}
                 </span>
               </div>
@@ -487,6 +490,7 @@ const SecondPage = () => {
           </button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

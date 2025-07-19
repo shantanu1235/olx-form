@@ -79,15 +79,15 @@ const PostAdWizard = () => {
                   key={idx}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  <FaHome className="subcat-icon" />
+                   
                   <span className="subcat-label">{sub}</span>
                 </Link>
               ) : (
                 <div
                   className={`subcategory-row${selectedCategory && selected.sub[idx] === sub ? " active" : ""}`}
-                  key={idx}
+                  key={idx} 
                 >
-                  <FaHome className="subcat-icon" />
+                  
                   <span className="subcat-label">{sub}</span>
                 </div>
               )

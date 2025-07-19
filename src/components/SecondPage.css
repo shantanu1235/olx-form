@@ -1,29 +1,41 @@
 /* OLX-style form container */
 .form-container {
-  width: 100%;
-  max-width: 680px;
+  width: 90%;
+  max-width: 780px;
   margin: 36px auto;
   background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgb(180, 180, 180); /* replaced shadow with a prominent OLX-style border */
+  /* border-radius: 12px; */
+  border-top:none;
+   border-right: 1px solid rgb(193, 193, 193);
+   border-left: 1px solid rgb(193, 193, 193);
+   border-bottom: 1px solid rgb(193, 193, 193);
   /* box-shadow: 0 4px 24px rgba(33, 150, 243, 0.08); / / removed shadow */
-  padding: 32px 28px;
+  padding: 3px 28px ;
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 /* Section separation */
 .section {
   margin-top: 32px;
-  border-top: 1px solid #f2f2f2;
   padding-top: 24px;
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -28px; /* match horizontal padding in .form-container */
+  width: calc(100% + 56px); /* 28px left + 28px right */
+  border-top: 1px solid gray
 }
 
 /* Headings */
 h2 {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   color: #212121;
-  margin-bottom: 22px;
+  margin-bottom: 10px;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -37,15 +49,16 @@ h3 {
 
 /* Category & change link */
 .selected-category {
+  height: 80px;
   font-size: 15px;
-  color: #757575;
-  font-weight: 500;
+  color:black;
+  font-weight: 700;
 }
 
 .change-link {
-  color: #2196f3;
+  color: #1919ee;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 15px;
   text-decoration: underline;
   transition: color 0.2s;
 }
@@ -74,11 +87,11 @@ label {
 .button-group button {
   padding: 9px 18px;
   border: 1px solid #bdbdbd;
-  background: #f5f5f5;
+  background: white;
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.2s, border-color 0.2s;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
 }
 .button-group button:hover {
@@ -95,14 +108,14 @@ label {
 input[type="text"],
 textarea,
 select {
-  width: 100%;
+  width: 70%;
   padding: 12px;
   margin-top: 8px;
   margin-bottom: 18px;
   border: 1.5px solid #e0e0e0;
   border-radius: 7px;
   font-size: 15px;
-  background: #fafafa;
+  background:white;
   transition: border-color 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
 }
@@ -116,36 +129,36 @@ select:focus {
 
 textarea {
   height: 100px;
-  resize: vertical;
+  resize: none;
 }
 
 /* Photo grid */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(7, 70px); /* 7 rows, each 70px high */
+  grid-template-columns: repeat(4, 5.4rem);
+  grid-template-rows: repeat(7, 90px); /* 7 rows, each 70px high */
   gap: 10px;
-  margin: 1px;
   justify-items: start;
   margin-left: 0;
-  min-width: 320px;
-  max-width: 340px; /* 4 columns * 70px + gaps */
+  max-height: 530px;
+  min-width: 15px;
+  max-width: 1px; /* 4 columns * 70px + gaps */
 }
 
 .photo-box {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   aspect-ratio: 1 / 1;
   border: 2px solid #bdbdbd;
   display: flex;
   align-items: center;      /* Center content vertically */
   justify-content: center;  /* Center content horizontally */
-  font-size: 14px;
+  font-size: 10px;
   text-align: center;
   cursor: pointer;
-  background: #f5f5f5;
+  background: white;
   position: relative;       /* Needed for absolute positioning of image */
-  border-radius: 8px;
+  /* border-radius: 8px; */
   transition: border-color 0.2s, background 0.2s;
   padding: 0;               /* Remove padding for full image fit */
   overflow: hidden;         /* Hide overflow for rounded corners */
@@ -232,14 +245,15 @@ textarea {
 
 /* Post button */
 .post-btn {
-  width: 100%;
+
+  width: 15%;
   padding: 16px;
-  font-size: 18px;
+  font-size: 15px;
   background: linear-gradient(90deg, #2196f3 0%, #21cbf3 100%);
-  border: 1px solid #040709; /* replaced shadow with border */
+  border: none; /* replaced shadow with border */
   color: #fff;
-  border-radius: 8px;
   cursor: pointer;
+  border-radius: 5px;
   font-weight: 700;
   letter-spacing: 0.5px;
   transition: background 0.2s, opacity 0.2s, box-shadow 0.2s;
@@ -251,4 +265,24 @@ textarea {
   background: #bdbdbd;
   cursor: not-allowed;
   opacity: 0.7;
+}
+.char-count{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 26rem;
+  color: gray;
+  /* justify-content: flex-end; */
+}
+
+.count1{
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+}
+.section{
+  margin-top: -3px;
+}
+.pera{
+  font-weight: 300;
 }
