@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TbCameraPlus } from "react-icons/tb";
+import { Link } from 'react-router-dom';
 import "./SecondPage.css";
 
 const ADTITLE_MAX = 70;
@@ -134,7 +135,7 @@ const SecondPage = () => {
           <strong>SELECTED CATEGORY</strong>
           <p className="pera">
             Properties / For Rent: Houses & Apartments{" "}
-            <span className="change-link">Change</span>
+            <Link to="/" className="link3">change</Link>
           </p>
         </div>
       </div>

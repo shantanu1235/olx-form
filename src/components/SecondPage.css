@@ -286,3 +286,14 @@ textarea {
 .pera{
   font-weight: 300;
 }
+.link3{
+
+  color: #0606ee;
+  font-size: 15px;
+  font-weight: 200;
+  text-decoration: none;
+  
+}
+.link3:hover{
+   text-decoration: underline;
+}
