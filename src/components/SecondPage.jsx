@@ -35,9 +35,12 @@ const SecondPage = () => {
     setForm({ ...form, [field]: value });
   };
 
+
   const handleBlur = (field) => {
     setTouched({ ...touched, [field]: true });
   };
+
+
 
   const validate = () => {
     const errors = {};
@@ -236,15 +239,20 @@ const SecondPage = () => {
               {((touched.listedBy || submitted) && errors.listedBy) && (
                 <div className="error">{errors.listedBy}</div>
               )}
+<input
+  type="text"
+  placeholder="Super Builtup area sqft *"
+  value={form.superArea}
+  onChange={e => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) { // ✅ Allow only numbers
+      handleInput("superArea", value);
+    }
+  }}
+  onBlur={() => handleBlur("superArea")}
+  required
+/>
 
-              <input
-                type="text"
-                placeholder="Super Builtup area sqft *"
-                value={form.superArea}
-                onChange={e => handleInput("superArea", e.target.value)}
-                onBlur={() => handleBlur("superArea")}
-                required
-              />
               {((touched.superArea || submitted) && errors.superArea) && (
                 <div className="error">{errors.superArea}</div>
               )}
@@ -253,7 +261,14 @@ const SecondPage = () => {
                 type="text"
                 placeholder="Carpet Area sqft *"
                 value={form.carpetArea}
-                onChange={e => handleInput("carpetArea", e.target.value)}
+                onChange={e => {
+                  const value=e.target.value
+                   if (/^\d*$/.test(value)) { 
+                    handleInput("carpetArea",value)
+                   }
+                }
+                  
+                }
                 onBlur={() => handleBlur("carpetArea")}
                 required
               />
@@ -283,19 +298,40 @@ const SecondPage = () => {
                 type="text"
                 placeholder="Maintenance (Monthly)"
                 value={form.maintenance || ""}
-                onChange={e => handleInput("maintenance", e.target.value)}
+                onChange={e => {
+                  const value=e.target.value
+                   if (/^\d*$/.test(value)) { 
+                    handleInput("maintenance",value)
+                   }
+                }
+                  
+                }
               />
               <input
                 type="text"
                 placeholder="Total Floors"
                 value={form.totalFloors || ""}
-                onChange={e => handleInput("totalFloors", e.target.value)}
+              onChange={e => {
+                  const value=e.target.value
+                   if (/^\d*$/.test(value)) { 
+                    handleInput("totalFloors",value)
+                   }
+                }
+                  
+                }
               />
               <input
                 type="text"
                 placeholder="Floor No"
                 value={form.floorNo || ""}
-                onChange={e => handleInput("floorNo", e.target.value)}
+                onChange={e => {
+                  const value=e.target.value
+                   if (/^\d*$/.test(value)) { 
+                    handleInput("floorNo",value)
+                   }
+                }
+                  
+                }
               />
 
               <label>Car Parking</label>
@@ -373,7 +409,14 @@ const SecondPage = () => {
             type="text"
             placeholder="Price *"
             value={form.price}
-            onChange={e => handleInput("price", e.target.value)}
+           onChange={e => {
+                  const value=e.target.value
+                   if (/^\d*$/.test(value)) { 
+                    handleInput("price",value)
+                   }
+                }
+                  
+                }
             onBlur={() => handleBlur("price")}
             required
           />
@@ -383,46 +426,44 @@ const SecondPage = () => {
         </div>
 
         {/* Photo Upload Section */}
-        <div className="section">
-          <h3>UPLOAD UP TO 20 PHOTOS</h3>
-          <div className="photo-grid">
-            {photos.map((photo, index) => (
-              <div
-                key={index}
-                className="photo-box"
-                onClick={handlePhotoBoxClick}
-                style={{ cursor: "pointer" }}
-              >
-                {photo ? (
-                  <img src={photo} alt={`Photo ${index + 1}`} className="photo-preview" />
-                ) : (
-                  <span>
-                    <TbCameraPlus className="photo-icon" />
-                    {index === 0 && (
-                      <>
-                      
-                        
-                      </>
-                    )}
-                  </span>
-                )}
-              </div>
-            ))}
-            <input
-              type="file"
-              accept="image/*"
-              multiple
-              style={{ display: "none" }}
-              ref={fileInputRef}
-              onChange={e => {
-                if (e.target.files && e.target.files.length > 0) {
-                  handlePhotoChange(e.target.files);
-                }
-              }}
-            />
-          </div>
-          <small className="mandatory">This field is mandatory</small>
-        </div>
+       <div className="section">
+  <h3>UPLOAD UP TO 20 PHOTOS</h3>
+  <div className="photo-grid">
+    {photos.map((photo, index) => (
+      <div
+        key={index}
+        className="photo-box"
+        onClick={handlePhotoBoxClick}
+        style={{ cursor: "pointer" }}
+      >
+        {photo ? (
+          <img src={photo} alt={`Photo ${index + 1}`} className="photo-preview" />
+        ) : (
+          <span>
+            <TbCameraPlus className="photo-icon" />
+          </span>
+        )}
+      </div>
+    ))}
+    <input
+      type="file"
+      accept="image/*"
+      multiple
+      style={{ display: "none" }}
+      ref={fileInputRef}
+      onChange={e => {
+        if (e.target.files && e.target.files.length > 0) {
+          handlePhotoChange(e.target.files);
+        }
+      }}
+    />
+  </div>
+  {/* ✅ Hide this message if at least one photo is uploaded */}
+  {photos.some(photo => photo !== null) ? null : (
+    <small className="mandatory">This field is mandatory</small>
+  )}
+</div>
+
 
         {/* Location Section */}
         <div className="section3">
